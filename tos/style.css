@@ -1,0 +1,158 @@
+:root {
+  --background-a: #131b21;
+}
+
+@keyframes move{
+  0%{
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(100%)
+  }
+  50%{
+    transform: translateX(0px);
+  }
+  75% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(9px)
+  }
+}
+/* the animation property in coin is already comented out :+1: (discord moment) AHHHHHH */
+@keyframes coin{
+  0% {
+    transform: rotate(0deg);
+  }
+  /*
+  25% {
+    transform: rotate(calc(90deg));
+  }
+  50% {
+    transform: rotate(calc(90deg*2));
+  }
+  75% {
+    transform: rotate(calc(90deg*3));
+  }
+  */
+  90% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-a);
+}
+
+#top {
+  width: 100%; /* Full width */
+  height: 40px;
+  background-color: rgba(26,26,31,.716);
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  padding: 1%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  z-index: 2
+}
+
+#topRight {
+	display: flex; /* or inline-flex */
+	flex-direction: row;
+	justify-content:right;
+  align-items: flex-start;
+  align-content: flex-start;
+  row-gap: 2cm;
+  gap: 10px
+}
+
+#topLeft {
+	display: flex; /* or inline-flex */
+	flex-direction: row;
+	justify-content:left;
+  align-items: flex-start;
+  align-content: flex-start;
+  row-gap: 2cm;
+  gap: 10px
+}
+
+.topChild {
+  font-size: calc(100%);
+  color: #a6a6a6;
+  font-family: Open Sans,Vazirmatn,sans-serif;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+#logo {
+  flex-grow: 1;
+  size: 1cm
+  align-self: center;
+  animation: coin 5s cubic-bezier(0.76,-0.24, 0.5, 1.47) infinite;
+}
+
+@media only screen and (max-width: 600px) { /* Do not display moving logo for phone screens */
+  #logo {
+    animation-play-state: paused;
+    display: none
+  }
+}
+
+#coin {
+  size: 1cm;
+  animation: coin 5s cubic-bezier(0, 1.44, 1,-0.2) infinite; 
+}
+
+a {
+  text-decoration: none;
+  color: red
+}
+
+#topChildHome:hover, #topChildCommands:hover, #topChildSupport:hover, #topChildC:hover {
+color: orange;
+text-underline-position: auto;
+}
+
+/* EVERYTHING ABOVE IS NAVBAR CSS */
+
+main {
+  align-items:center;
+  font-family: Open Sans,Vazirmatn,sans-serif;
+  font-style: normal;
+  color: #fff;
+	display: flex; /* or inline-flex */
+	flex-direction: column;
+  padding-top: 14em;
+  padding-left: 4em;
+  padding-right: 4em;
+}
+
+.tos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3cm;
+}
+
+.tosTitle {
+  font-size: 3.1em;
+}
+
+
+.tosDescription {
+  font-size: 2em
+}
+
+h {
+  size: 4em
+}
