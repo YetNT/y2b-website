@@ -117,13 +117,10 @@ a {
   text-decoration: none;
   color: red
 }
-
-
-#topChildToS:hover, #topChildCommands:hover, #topChildSupport:hover, #topChildC:hover {
+a:hover {
   color: orange;
   text-underline-position: auto;
 }
-
 
 /* EVERYTHING ABOVE IS NAVBAR CSS */ /* also coin is here */
 /* EVERYTHING BELOW IS MAIN PAGE CSS */

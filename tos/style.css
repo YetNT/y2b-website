@@ -117,9 +117,9 @@ a {
   color: red
 }
 
-#topChildHome:hover, #topChildCommands:hover, #topChildSupport:hover, #topChildC:hover {
-color: orange;
-text-underline-position: auto;
+a:hover {
+  color: orange;
+  text-underline-position: auto;
 }
 
 /* EVERYTHING ABOVE IS NAVBAR CSS */
