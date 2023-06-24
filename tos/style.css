@@ -156,3 +156,9 @@ main {
 h {
   size: 4em
 }
+
+#copyright {
+  font-size: 0.4cm;
+  padding-top: 4em;
+  padding-bottom: 4em
+}

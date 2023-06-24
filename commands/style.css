@@ -294,3 +294,9 @@ button {
   transform: scale(1);
   z-index: 1
 }
+
+#copyright {
+  font-size: 0.4cm;
+  padding-top: 4em;
+  padding-bottom: 4em
+}
