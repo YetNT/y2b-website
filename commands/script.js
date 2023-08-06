@@ -21,7 +21,9 @@ const commandsObject = {
             name: 'challenge', subcommand: [
                 { name: "buttons", description: 'Click the right button for a reward!', use: "/challenge buttons" }
             ]
-        }
+        },
+        { name: 'vote', description: 'Vote for the bot on top.gg and discordbotlist', use: "/vote" },
+        { name: 'crystalize', description: 'Crystalize your rocks', use: "/crystalize [amount:Number (higher than 50)]" },
     ],
     other: [
         { name: 'help', description: 'Get help with commands. List commands and their description', use: "/help" },
