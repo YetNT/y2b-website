@@ -1,88 +1,96 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Yet 2.0</title>
+        <link href="./style.css" rel="stylesheet" type="text/css" />
+        <link href="../common.css" rel="stylesheet" type="text/css" />
+        <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+    </head>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Yet 2.0</title>
-    <link href="/commands/style.css" rel="stylesheet" type="text/css" />
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-
-</head>
-
-<body onload="cmd()">
-    <nav id="top">
-        <div id="topLeft">
-            <span id="space_"></span>
-            <span id="space_"></span>
-            <a href="../" class="topChild">Home</a>
-            <a href="../tos/" class="topChild">ToS</a>
-        </div>
-        <div><img src="../img/Banner.png" id="logo"></div>
-        <div id="topRight">
-            <a href="https://discord.gg/r2rdHXTJvs" target="_blank" class="topChild">Support</a>
-            <a href="https://discord.com/oauth2/authorize?client_id=701280304182067251&permissions=412317141056&scope=applications.commands%20bot" target="_blank" class="topChild">Invite   </a>
-            <span id="space_"></span>
-            <span id="space_"></span>
-        </div>
-    </nav>
-    <main>
-        <div id="titleDie">Yet 2.0 Banner fell from a high place</div>
-        <h1>Commands</h1>
-        <div id="searchBar"><input type="text" id="search" placeholder="Enter command name"><button
-                onclick="searchFor()">Go!</button></div>
-        <div id="howTo">[] = required, () = optional</div>
-        <div class="commands" id="commands">
-            <!-- THE CODE BELOW IS REMOVED BY ./script.js THIS IS LEFT HERE AS A PLACEHOLDER IN CASE THINGS GO WRONG -->
-            <div class="command">
-                <div class="commandHead">
-                    <div class="commandName">
-                        Help
-                    </div>
-                    <div class="commandUse">
-                        /help (no arguments)
-                    </div>
-                </div>
-                <div class="commandDesc">
-                    Long ass description !!!!!!!!!!!!!! Anyways what the fuckckckckcckck LOMAO Go buy me a docnbjfhf
-                    JWBHVFsdbkjbfjkbdasfv cbnhgb
-                </div>
+    <body onload="cmd()">
+        <nav id="top">
+            <div id="topLeft">
+                <span id="space_"></span>
+                <span id="space_"></span>
+                <a href="../" class="topChild">Home</a>
+                <a href="../tos/" class="topChild">ToS</a>
             </div>
-
-            <div class="command">
-                <div class="commandHead">
-                    <div class="commandName">
-                        Command
-                    </div>
-                    <div class="commandUse">
-                        This command contains subcommands.
-                    </div>
-                </div>
-                <div class="commandsDesc">
-                    <div class="subcommands">
-                        <subcommand>
-                            <div class="subcommandHead">
-                                <div class="subcommandName">
-                                    list
-                                </div>
-                                <div class="subcommandUse">
-                                    /command list
-                                </div>
-                            </div>
-                            <div class="subcommandDesc">
-                                List disabled and enabled commands
-                            </div>
-                        </subcommand>
-                    </div>
-                </div>
+            <div><img src="../img/Banner.png" id="logo" /></div>
+            <div id="topRight">
+                <a
+                    href="https://discord.gg/r2rdHXTJvs"
+                    target="_blank"
+                    class="topChild"
+                    >Support</a
+                >
+                <a
+                    href="https://discord.com/oauth2/authorize?client_id=701280304182067251&permissions=412317141056&scope=applications.commands%20bot"
+                    target="_blank"
+                    class="topChild"
+                    >Invite
+                </a>
+                <span id="space_"></span>
+                <span id="space_"></span>
             </div>
-            <!-- THE CODE ABOVE IS REMOVED BY ./script.js THIS IS LEFT HERE AS A PLACEHOLDER IN CASE THINGS GO WRONG -->
-        </div>
-        <footer>
-            <div id="copyright">&copy;2023 Yet 2.0 Bot. All rights reserved.</div>
-        </footer>
-    </main>
-    <script src="./script.js"></script>
-</body>
+        </nav>
+        <main>
+            <div id="titleDie">Yet 2.0 Banner fell from a high place</div>
+            <h1>Commands</h1>
+            <div id="searchBar">
+                <input
+                    type="text"
+                    id="search"
+                    placeholder="Enter command name"
+                /><button onclick="searchFor()">Go!</button>
+            </div>
+            <div id="howTo">[] = required, () = optional</div>
+            <div class="commands" id="commands">
+                <!-- THE CODE BELOW IS REMOVED BY ./script.js THIS IS LEFT HERE AS A PLACEHOLDER IN CASE THINGS GO WRONG -->
+                <div class="command">
+                    <div class="commandHead">
+                        <div class="commandName">Help</div>
+                        <div class="commandUse">/help (no arguments)</div>
+                    </div>
+                    <div class="commandDesc">
+                        Long ass description !!!!!!!!!!!!!! Anyways what the
+                        fuckckckckcckck LOMAO Go buy me a docnbjfhf
+                        JWBHVFsdbkjbfjkbdasfv cbnhgb
+                    </div>
+                </div>
 
+                <div class="command">
+                    <div class="commandHead">
+                        <div class="commandName">Command</div>
+                        <div class="commandUse">
+                            This command contains subcommands.
+                        </div>
+                    </div>
+                    <div class="commandsDesc">
+                        <div class="subcommands">
+                            <subcommand>
+                                <div class="subcommandHead">
+                                    <div class="subcommandName">list</div>
+                                    <div class="subcommandUse">
+                                        /command list
+                                    </div>
+                                </div>
+                                <div class="subcommandDesc">
+                                    List disabled and enabled commands
+                                </div>
+                            </subcommand>
+                        </div>
+                    </div>
+                </div>
+                <!-- THE CODE ABOVE IS REMOVED BY ./script.js THIS IS LEFT HERE AS A PLACEHOLDER IN CASE THINGS GO WRONG -->
+            </div>
+            <footer>
+                <div id="copyright">
+                    &copy;2023 Yet 2.0 Bot. All rights reserved.
+                </div>
+            </footer>
+        </main>
+        <script src="./script.js"></script>
+    </body>
 </html>
