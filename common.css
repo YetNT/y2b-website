@@ -1,0 +1,68 @@
+:root {
+    --background-a: #131b21;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    background-color: var(--background-a);
+}
+
+#top {
+    width: 100%; /* Full width */
+    height: 40px;
+    background-color: rgba(26, 26, 31, 0.716);
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    padding: 1%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    z-index: 2;
+}
+
+#topRight {
+    display: flex; /* or inline-flex */
+    flex-direction: row;
+    justify-content: right;
+    align-items: flex-start;
+    align-content: flex-start;
+    row-gap: 2cm;
+    gap: 10px;
+}
+
+#topLeft {
+    display: flex; /* or inline-flex */
+    flex-direction: row;
+    justify-content: left;
+    align-items: flex-start;
+    align-content: flex-start;
+    row-gap: 2cm;
+    gap: 10px;
+}
+
+.topChild {
+    font-size: calc(100%);
+    color: #a6a6a6;
+    font-family: Open Sans, Vazirmatn, sans-serif;
+    font-style: normal;
+    line-height: 1.5;
+}
+@media only screen and (max-width: 600px) {
+    /* Do not display moving logo for phone screens */
+    #logo {
+        animation-play-state: paused;
+        display: none;
+    }
+}
+a {
+    text-decoration: none;
+    color: red;
+}
+a:hover {
+    color: orange;
+    text-underline-position: auto;
+}
