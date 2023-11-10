@@ -46,12 +46,6 @@
     animation: coin 5s cubic-bezier(0.76, -0.24, 0.5, 1.47) infinite;
 }
 
-/* idk if theres a coin but i didnt see one
-#coin {
-    size: 1cm;
-    animation: coin 5s cubic-bezier(0, 1.44, 1, -0.2) infinite;
-}*/
-
 a {
     text-decoration: none;
     color: red;
