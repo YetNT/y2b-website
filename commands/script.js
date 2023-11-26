@@ -24,6 +24,7 @@ const commandsObject = {
         },
         { name: 'vote', description: 'Vote for the bot on top.gg and discordbotlist', use: "/vote" },
         { name: 'crystalize', description: 'Crystalize your rocks', use: "/crystalize [amount:Number (higher than 50)]" },
+	    {name:"forge", description: "Forge items from other items and list forgable items", use:"/forge"}
     ],
     other: [
         { name: 'help', description: 'Get help with commands. List commands and their description', use: "/help" },
@@ -35,7 +36,14 @@ const commandsObject = {
                 { name: "enable", description: 'Enable a disabled command. Requires Manage Members Permission', use: "/command enable [command:{choices}]" },
                 { name: "disable", description: 'Disables an enabled command. Requires Manage Members Permission', use: "/command disable [command:{choices}]" }
             ]
-        }
+        },
+	{
+		name:"report", subcommand: [
+			{name:"user", description: "Report a user.", use: "/report user [who:User] [reason:String]"},
+			{name:"server", description: "Report a server", use:"/report server [reason:String]"},
+			{name:"bug", description: "Report a bug", use:"/report bug [type:{choices}] [description:String]"}
+		]
+	}
     ]
 }
 
