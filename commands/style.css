@@ -52,8 +52,7 @@
     }
 }
 
-#logo {
-    flex-grow: 1;
+nav div img {
     size: 1cm;
     align-self: center;
     animation: logo 5s linear infinite;
@@ -106,7 +105,7 @@ h1 {
     align-items: center;
 }
 
-.commands {
+#commands {
     /* Contains all the commands */
     font-size: 2em;
     display: flex;
@@ -117,8 +116,8 @@ h1 {
     color: #fff;
 }
 
-.command {
-    /* For one singular command with a name desc and use */
+#commands c {
+    /* Singular command*/
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -130,7 +129,7 @@ h1 {
     padding: 2cm;
 }
 
-.commandHead {
+#commands c div:nth-child(1) {
     /* Contains the command name and use */
     display: flex;
     flex-direction: row;
@@ -141,36 +140,38 @@ h1 {
 
 @media only screen and (max-width: 600px) {
     /* Mobile UI */
-    .commands {
+    #commands {
         font-size: 1em; /* Make all children fonts smaller so box doesn't increase */
     }
-    .command {
+    #commands c {
         /* Align items to the center and not the left*/
         align-items: var(--align-mobile);
         align-content: var(--align-mobile);
         padding: 0.8cm; /* Make spaces smaller for smaller screens */
         margin: 0.3cm;
     }
-    .commandHead {
+    #commands c div:nth-child(1) {
         column-gap: 10px; /* Make spaces smaller for smaller screens */
         align-items: var(--align-mobile);
     }
-    .commandDesc {
+    #commands c div:nth-child(2) {
         text-align: var(--align-mobile);
     }
 }
 
-.commandName {
+c div:nth-child(1) div:nth-child(1) {
     /* Command name */
     font-size: 2em;
 }
 
-.commandUse {
+c div:nth-child(1) div:nth-child(2) {
+    /* Command use */
     color: #b8b842;
     font-size: 0.8em;
 }
 
-.subcommands {
+div.subcommands {
+    /* Array of subcommands */
     display: flex;
     flex-direction: row;
     justify-content: var(--align-desktop);
@@ -178,13 +179,14 @@ h1 {
 }
 
 subcommand {
+    /* Singular subcommand */
     display: flex;
     flex-direction: column;
     justify-content: var(--align-desktop);
 }
 
-.subcommandHead {
-    /* Contains the command name and use */
+subcommand div.subcommandHead {
+    /* Contains the subcommand name and use */
     display: flex;
     flex-direction: row;
     justify-content: var(--align-desktop);
@@ -192,18 +194,20 @@ subcommand {
     column-gap: 10px; /* Size between the name and usage*/
 }
 
-.subcommandName {
-    /* Command name */
-    font-size: 1em;
+subcommand div.subcommandHead div.subcommandName {
+    /* Subcommand name */
+    font-size: 0.3em;
 }
 
-.subcommandUse {
+subcommand div.subcommandHead div.subcommandUse {
+    /* Subcommand use*/
     color: #50b842;
-    font-size: 0.5em;
+    font-size: 0.3em;
 }
 
-.subcommandDesc {
-    font-size: 0.6em;
+subcommand div.subcommandDesc {
+    /* Subcomand desc */
+    font-size: 0.4em;
 }
 
 input {

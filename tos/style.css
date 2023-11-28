@@ -39,8 +39,7 @@
     }
 }
 
-#logo {
-    flex-grow: 1;
+nav div img {
     size: 1cm;
     align-self: center;
     animation: coin 5s cubic-bezier(0.76, -0.24, 0.5, 1.47) infinite;

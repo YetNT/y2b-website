@@ -34,8 +34,7 @@
     }
 }
 
-#logo {
-    flex-grow: 1;
+nav div img {
     size: 1cm;
     align-self: center;
     animation: move 5s cubic-bezier(0, 1.33, 0.91, 0.12) infinite;
@@ -116,15 +115,15 @@ main {
     border-radius: 20px;
 }
 
-#features {
+main features {
     /* Features flexbox */
     font-size: 2em;
     display: flex;
     flex-direction: column;
 }
 
-.fChild {
-    /* Child class of features flexbox. Currently 3*/
+main features div {
+    /* Child class of features flexbox. A feature*/
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -134,23 +133,19 @@ main {
     margin: 1.2cm;
 }
 
-#features > .fChild:nth-child(even) {
-    /* For every second fChild, reverse the image and text*/
-    justify-content: space-between;
-    flex-direction: row-reverse;
-}
-
-.fChild:nth-child(odd) {
-    /* Child 1 is the image, Child 2 is the text */
+main features div:nth-child(odd) {
+    /* Odd children should stay the same*/
     padding-right: 10em;
 }
-.fChild:nth-child(even) {
-    /* Child 1 is the image, Child 2 is the text */
+main features div:nth-child(even) {
+    /* Even children swap the elements so it looks cool lmao. */
+    justify-content: space-between;
+    flex-direction: row-reverse;
     padding-left: 10em;
 }
 
-.fImg {
-    /* Image for features */
+main features div img {
+    /* The actual images */
     max-width: 30%;
     height: auto;
     z-index: -1;
@@ -169,7 +164,7 @@ main {
 
 @media only screen and (max-width: 600px) {
     /* For phone screens, once again change how images shown by making it bigger and change the flex direction for fChiild from row to coloumn*/
-    .fChild {
+    main features div {
         flex-direction: column;
         align-items: center;
         margin: 0.2cm; /* Make spaces between features smaller so user doesn't have to scroll so far*/
@@ -178,20 +173,20 @@ main {
         border-width: 2px;
     }
 
-    #features > .fChild:nth-child(even) {
+    main features div:nth-child(even) {
         /* For every second fChild, reverse the image and text*/
         justify-content: right;
         flex-direction: column-reverse;
     }
 
-    .fChild:nth-child(even) {
+    main features div:nth-child(even) {
         padding-left: 0px;
     }
-    .fChild:nth-child(odd) {
+    main features div:nth-child(odd) {
         padding-right: 0px;
     }
 
-    .fImg {
+    main features div img {
         max-width: 69%;
         height: auto;
         border-radius: 15px;
