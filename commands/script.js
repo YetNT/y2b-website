@@ -64,7 +64,7 @@ const commandsObject = [
 
 async function cmd() {
     let response = await fetch(
-        "http://dono-03.danbot.host:5297/y2b/get/commands",
+        "https://dono-03.danbot.host:5297/y2b/get/commands",
         {
             headers: { "api-authority-key": `y3et60trKl3z` },
         }
