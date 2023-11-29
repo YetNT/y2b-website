@@ -71,8 +71,8 @@ nav div img {
 
 @media only screen and (max-width: 600px) {
     #titleDie {
-        animation-play-state: paused;
-        display: none;
+        width: 4cm;
+        top: 0.5em;
     }
 }
 
@@ -147,8 +147,8 @@ h1 {
         /* Align items to the center and not the left*/
         align-items: var(--align-mobile);
         align-content: var(--align-mobile);
-        padding: 0.8cm; /* Make spaces smaller for smaller screens */
-        margin: 0.3cm;
+        padding: clamp(0.2cm, 0.4cm, 0.8cm);
+        margin: clamp(0.2em, 0.3em, 0.4em);
     }
     #commands c div:nth-child(1) {
         column-gap: 10px; /* Make spaces smaller for smaller screens */

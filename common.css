@@ -52,8 +52,10 @@ nav div a {
     /* Do not display moving logo for phone screens */
     nav div img {
         /* The actual banner image */
-        animation-play-state: paused;
-        display: none;
+        width: 1.2cm;
+    }
+    nav div:nth-child(odd) {
+        flex-grow: 1;
     }
 }
 a {
