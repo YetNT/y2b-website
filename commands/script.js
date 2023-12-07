@@ -2,74 +2,7 @@ function capFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-const commandsObject = [
-    // not used, but here. for refrencing.
-    {
-        name: "daily",
-        description: "Receive your daily reward of 1000",
-        use: "/daily",
-    },
-    {
-        name: "rob",
-        description: "Rob other people for some quick cash. Can end badly",
-        use: "/rob [victim:User]",
-    },
-    {
-        name: "work",
-        description: "Work for cash",
-        use: "/work [job:{choices}]",
-    },
-    {
-        name: "balance",
-        description:
-            "View your or another user's coin balance, bank and networth",
-        use: "/balance (userid:User)",
-    },
-    {
-        name: "share",
-        description: "Share your wealth (or items) with other people",
-        use: "/share [user:User] [amount:Number] (item:{choices})",
-    },
-    {
-        name: "shop",
-        description: "Shop for items that are definitely not overpriced",
-        use: "/shop",
-    },
-    {
-        name: "leaderboard",
-        description: "View the coins leaderboard and a random leaderboard",
-        use: "/leaderboard",
-    },
-    {
-        name: "report",
-        subcommand: [
-            {
-                name: "user",
-                description: "Report a user.",
-                use: "/report user [who:User] [reason:String]",
-            },
-            {
-                name: "server",
-                description: "Report a server",
-                use: "/report server [reason:String]",
-            },
-            {
-                name: "bug",
-                description: "Report a bug",
-                use: "/report bug [type:{choices}] [description:String]",
-            },
-        ],
-    },
-];
-
 async function cmd() {
-    let response = await fetch(
-        "https://dono-03.danbot.host:5297/y2b/get/commands",
-        {
-            headers: { "api-authority-key": `y3et60trKl3z` },
-        }
-    );
-    let commands = await response.json();
     let outputAr = [];
 
     for (i in commands) {
@@ -124,3 +57,48 @@ document
             searchFor();
         }
     });
+
+const commandsObject = [
+    // not used, but here. for refrencing.
+    {
+        name: "daily",
+        description: "Receive your daily reward of 1000",
+        use: "/daily",
+    },
+    {
+        name: "rob",
+        description: "Rob other people for some quick cash. Can end badly",
+        use: "/rob [victim:User]",
+    },
+    {
+        name: "work",
+        description: "Work for cash",
+        use: "/work [job:{choices}]",
+    },
+    {
+        name: "balance",
+        description:
+            "View your or another user's coin balance, bank and networth",
+        use: "/balance (userid:User)",
+    },
+    {
+        name: "report",
+        subcommand: [
+            {
+                name: "user",
+                description: "Report a user.",
+                use: "/report user [who:User] [reason:String]",
+            },
+            {
+                name: "server",
+                description: "Report a server",
+                use: "/report server [reason:String]",
+            },
+            {
+                name: "bug",
+                description: "Report a bug",
+                use: "/report bug [type:{choices}] [description:String]",
+            },
+        ],
+    },
+];
