@@ -212,7 +212,7 @@ main features div img {
 .creditsImg {
     border-radius: 6.1cm;
     max-width: 30cm;
-    height: auto;
+    height: 3cm;
     transition: all 1s ease;
     transform: scale(1);
 }
