@@ -31,6 +31,11 @@ const commands = [
         use: "/rob [victim:User] ",
     },
     {
+        name: "steal",
+        description: "Steal from another user's inventory!",
+        use: "/steal [victim:User] ",
+    },
+    {
         name: "share",
         description: "Share your wealth (or items) with other people",
         use: "/share [user:User] [amount:Integer] (item:{choices}) ",
