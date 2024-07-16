@@ -3,27 +3,72 @@
 @tailwind utilities;
 
 :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
+    --background-a: #131b21;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --foreground-rgb: 255, 255, 255;
-        --background-start-rgb: 0, 0, 0;
-        --background-end-rgb: 0, 0, 0;
+html {
+    height: 100%;
+    width: 100%;
+    background-color: var(--background-a);
+}
+
+nav {
+    height: 40px;
+    background-color: rgba(26, 26, 31, 0.716);
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    padding: 1%;
+    display: flex;
+    flex-direction: row;
+    z-index: 2;
+    border: 2px dotted grey;
+    border-radius: 1cm;
+}
+
+nav div:nth-child(odd) {
+    /* Links */
+    display: flex; /* or inline-flex */
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-grow: 0.3;
+}
+
+nav div:nth-child(2) {
+    /* Banner (nav div img is the banner image.)*/
+    flex-grow: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav div a {
+    /* Actual link */
+    font-size: calc(100%);
+    color: #a6a6a6;
+    font-family: Open Sans, Vazirmatn, sans-serif;
+    font-style: normal;
+    line-height: 1.5;
+}
+@media only screen and (max-width: 600px) {
+    /* Do not display moving logo for phone screens */
+    nav div img {
+        /* The actual banner image */
+        width: 1.2cm;
+    }
+    nav div:nth-child(odd) {
+        flex-grow: 1;
     }
 }
-
-body {
-    color: rgb(var(--foreground-rgb));
-    background: linear-gradient(
-            to bottom,
-            transparent,
-            rgb(var(--background-end-rgb))
-        )
-        rgb(var(--background-start-rgb));
+a {
+    text-decoration: none;
+    color: red;
+}
+a:hover {
+    color: orange;
+    text-underline-position: auto;
 }
 
 @layer utilities {
