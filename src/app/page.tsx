@@ -48,7 +48,7 @@ const Home = () => {
             <button type="button" className="btn btnStyle" onClick={inviteRedirect}> Invite </button>
         <button type="button" className="btn btnStyle" onClick={githubRedirect}> Github</button>
         </div>
-        <picture><img src="coinz.png" alt="coin" id="coin" className="coin" width={100} height={100} onContextMenu={(e) => e.preventDefault()} /></picture>
+        <picture><img src="coinz.png" alt="coin" id="coin" className={s.coin} width={100} height={100} onContextMenu={(e) => e.preventDefault()} /></picture>
         <div className={s.features}>
             <div className={s.feature}>
                 <picture><img src="features/work.png" alt="a pic" /></picture>
