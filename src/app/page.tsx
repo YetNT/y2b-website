@@ -71,7 +71,7 @@ const Home = () => {
                 <span>and (soon to be) many more!</span>
             </div>
         </div>
-        <span id="goDoIt">
+        <span className={s.goDoIt}>
             So what you waiting for? Go
         <a
             href="https://discord.com/oauth2/authorize?client_id=701280304182067251&permissions=412317141056&scope=applications.commands%20bot"
@@ -84,30 +84,30 @@ const Home = () => {
         the bot right now
         </span>
         <div id="links">
-            <div className="buttons">
+            <div className={s.buttons}>
                 <button type="button" className="btn btnStyle" onClick={() => { window.location.href = '/tos/'; }}>
                     Terms Of Service
                 </button>
             </div>
         </div>
-        <div className="container">
-            <div id="credits">
-                <div className="user">
-                    <picture><img className="creditsImg" src="credits/yet.jpeg" alt="Yet"/></picture>
-                    <div className="creditsContent">
-                        <div className="contri">Bot Owner/Creator, HTML, CSS, Animations, Images</div>
+        <div className={s.container}>
+            <div className={s.credits}>
+                <div className={s.user}>
+                    <picture><img className={s.creditsImg} src="credits/yet.jpeg" alt="Yet"/></picture>
+                    <div className={s.creditsContent}>
+                        <div className={s.contri}>Bot Owner/Creator, HTML, CSS, Animations, Images</div>
                         <br />
-                        <div className="userLinks">
+                        <div className={s.userLinks}>
                             <a href="https://yetnt.pages.dev">Website</a>
                         </div>
                     </div>
                 </div>
-                <div className="user">
-                    <picture><img className="creditsImg" src="credits/flo.png" alt="Flo" /></picture>
-                    <div className="creditsContent">
-                        <div className="contri">ToS, Ideas,</div>
+                <div className={s.user}>
+                    <picture><img className={s.creditsImg} src="credits/flo.png" alt="Flo" /></picture>
+                    <div className={s.creditsContent}>
+                        <div className={s.contri}>ToS, Ideas,</div>
                         <br />
-                        <div className="userLinks">
+                        <div className={s.userLinks}>
                             <a href="https://devflo.pages.dev">Website</a>
                         </div>
                     </div>
