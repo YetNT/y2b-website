@@ -116,7 +116,7 @@ const Home = () => {
         </div>
         <footer>
             <div id="copyright">
-                &copy;2023 Yet 2.0 Bot. All rights reserved.
+                &copy;2024 Yet 2.0 Bot. All rights reserved.
             </div>
         </footer>
     </main>
