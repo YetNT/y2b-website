@@ -1,5 +1,6 @@
 # old shiot
 /old
+/.well-known
 # dependencies
 /node_modules
 /.pnp
