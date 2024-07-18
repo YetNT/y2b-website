@@ -19,7 +19,7 @@ nav {
     right: 0;
     left: 0;
     top: 0;
-    padding: 1%;
+    padding: 2%;
     display: flex;
     flex-direction: row;
     z-index: 2;
@@ -54,7 +54,7 @@ nav div a {
 }
 @media only screen and (max-width: 600px) {
     /* Do not display moving logo for phone screens */
-    nav div img {
+    nav div picture img {
         /* The actual banner image */
         width: 1.2cm;
     }
