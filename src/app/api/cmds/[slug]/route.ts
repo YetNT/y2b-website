@@ -1,6 +1,6 @@
 // GET https://y2b.pages.dev/api/cmds/[command]
 import { NextRequest, NextResponse } from "next/server";
-
+export const runtime = "edge";
 const pass = process.env.PSWD;
 import commands from "../../../commands/commands.json";
 import { Command } from "@/app/commands/commands";

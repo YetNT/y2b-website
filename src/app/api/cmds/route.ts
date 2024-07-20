@@ -1,7 +1,7 @@
 // Route to get the entire commands.json file.
 // GET https://y2b.pages.dev/api/cmds/
 import { NextRequest, NextResponse } from "next/server";
-
+export const runtime = "edge";
 import commands from "../../commands/commands.json";
 
 // Secret password for authentication
