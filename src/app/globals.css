@@ -112,6 +112,23 @@ h6 {
     font-weight: revert;
 }
 
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: revert;
+    font-feature-settings: revert;
+    font-variation-settings: revert;
+    font-size: revert;
+    font-weight: revert;
+    line-height: revert;
+    letter-spacing: revert;
+    color: revert;
+    margin: revert;
+    padding: revert;
+}
+
 @layer utilities {
     .text-balance {
         text-wrap: balance;

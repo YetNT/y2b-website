@@ -1,21 +1,26 @@
-interface Subcommand {
+export interface Subcommand {
     name: string,
     description: string,
     use: string;
 }
 
-interface Command {
+export interface Command {
     name: string;
     description?: string;
     use?: string;
-    subcommand?: Subcommand[]|undefined;
+    subcommands?: Subcommand[]|undefined;
 }
 
 
 const commands: Command[] = [
     {
+        name:"what",
+        use: "/use",
+        
+    },
+    {
         name: "challenge",
-        subcommand: [
+        subcommands: [
             {
                 name: "buttons",
                 description: "Click the right button for a reward!",
@@ -117,7 +122,7 @@ const commands: Command[] = [
     },
     {
         name: "command",
-        subcommand: [
+        subcommands: [
             {
                 name: "list",
                 description:
@@ -154,7 +159,7 @@ const commands: Command[] = [
     },
     {
         name: "report",
-        subcommand: [
+        subcommands: [
             {
                 name: "bug",
                 description:

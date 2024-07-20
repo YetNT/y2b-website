@@ -3,6 +3,7 @@
 import React from 'react';
 import s from './page.module.css';
 import commands from './commands';
+import type {Command, Subcommand} from './commands'
 
 const searchFor = () => {
     const input = document.getElementById("search") as HTMLInputElement;
@@ -14,26 +15,19 @@ const searchFor = () => {
     }
 };
 
-const Command = (
-    { 
-        name, description, use, subcommands 
-    }: {
-        name: string, description: string|undefined, use:string|undefined, subcommands:undefined|{
-            name: string, description: string, use:string
-        }[]
-    }) => (
-    <div id={name.toLowerCase()} className={s.command}>
+const CommandComponent = ({ c }: { c: Command }) => (
+    <div id={c.name.toLowerCase()} className={s.command}>
         <div className={s.commandHead}>
-            <div className={s.commandName}>{name}</div>
-            <div className={s.commandUse}>{use || ""}</div>
+            <div className={s.commandName}>{c.name}</div>
+            <div className={s.commandUse}>{c.use || ""}</div>
         </div>
         <div className={s.commandDesc}>
-            {description}
+            {c.description}
             {/* Render subcommands only if it is defined and not empty */}
-            {subcommands && subcommands.length > 0 && (
+            {c.subcommands && c.subcommands.length > 0 && (
                 <div className={s.subcommands}>
-                    {subcommands.map((sub, index) => (
-                        <div key={index} className={s.subcommand}>
+                    {c.subcommands.map((sub: Subcommand, index) => (
+                        <div key={index} className={s.subcommand} id={c.name.toLowerCase() + " " + sub.name.toLowerCase()}>
                             <div className={s.subcommandHead}>
                                 <div className={s.subcommandName}>{sub.name}</div>
                                 <div className={s.subcommandUse}>{sub.use}</div>
@@ -55,20 +49,17 @@ const Commands = () => {
                 <input
                     type="text"
                     id="search"
-                    className={s.search}
+                    className={s.searchBar}
                     placeholder="Enter command name"
                 />
-                <button onClick={() => searchFor()}>Go!</button>
+                <button onClick={() => searchFor()} className={s.button}>Go!</button>
             </div>
             <div className={s.howTo}>[] = required, () = optional</div>
             <div className={s.commands}>
                 {commands.map((cmd, index) => (
-                    <Command
+                    <CommandComponent
                         key={index}
-                        name={cmd.name}
-                        description={cmd.description}
-                        use={cmd.use}
-                        subcommands={cmd.subcommand}
+                        c={cmd}
                     />
                 ))}
             </div>
