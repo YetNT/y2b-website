@@ -5,11 +5,11 @@ const pass = process.env.PSWD;
 import commands from "../../../commands/commands.json";
 import { Command } from "@/app/commands/commands";
 
-export async function generateStaticParams() {
-    return commands.map((cmd) => ({
-        slug: cmd.name,
-    }));
-}
+// export async function generateStaticParams() {
+//     return commands.map((cmd) => ({
+//         slug: cmd.name,
+//     }));
+// }
 
 export async function GET(
     request: NextRequest,
@@ -18,12 +18,11 @@ export async function GET(
     try {
         // Check for the correct password in the headers
         const password = request.headers.get("Authorization");
-        if (password !== pass) {
+        if (password !== pass)
             return NextResponse.json(
                 { error: "Unauthorized" },
                 { status: 401 }
             );
-        }
 
         const { slug } = params;
         const command = slug;
@@ -47,3 +46,5 @@ export async function GET(
         );
     }
 }
+
+// export const dynamic = "force-static"; // 'auto' | 'force-dynamic' | 'error' | 'force-static';
