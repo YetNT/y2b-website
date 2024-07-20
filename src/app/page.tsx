@@ -3,7 +3,6 @@
 "use client";
 
 import s from './page.module.css'
-
 const Home = () => {
     const newPopup = (url: string) => {
             window.open(
