@@ -13,16 +13,6 @@ const Home = () => {
         );
     };
 
-    const inviteRedirect = () => {
-        window.open(
-            "https://discord.com/oauth2/authorize?client_id=701280304182067251&permissions=412317141056&scope=applications.commands%20bot"
-        );
-    };
-
-    const githubRedirect = () => {
-        window.open("https://github.com/Yetity/y2b");
-    };
-
     const handleKeyDown = (event: React.KeyboardEvent) => {
         if (event.key !== "y") {
             return;
@@ -38,41 +28,44 @@ const Home = () => {
 
         alert("Claim this promocode(remove the square brackets and no spaces): [webæ¹¥¶¿áá³¤ë_!] ");
     };
-
     return (
-    <main className={s.main}>
+    <main className={s.main} data-page="home">
         <h1 className={s.mainTitle}>
             Become the richest user in your server today, with Yet 2.0
         </h1>
         <div className={s.buttons}>
-            <button type="button" className="btn btnStyle" onClick={inviteRedirect}> Invite </button>
-        <button type="button" className="btn btnStyle" onClick={githubRedirect}> Github</button>
+            <button type="button" className={s.btn} onClick={() => { 
+                window.open("https://discord.com/oauth2/authorize?client_id=701280304182067251&permissions=412317141056&scope=applications.commands%20bot")
+            }}> Invite </button>
+            <button type="button" className={s.btn} onClick={() => {
+                window.open("https://github.com/Yetity/y2b")
+            }}> Github</button>
         </div>
         <picture><img src="coinz.png" alt="coin" id="coin" className={s.coin} width={100} height={100} onContextMenu={(e) => e.preventDefault()} /></picture>
         <div className={s.features}>
             <div className={s.feature}>
-                <picture><img src="features/work.png" alt="a pic" /></picture>
+                <picture><img src="features/work.png" alt="a pic" className={s.featureImg}/></picture>
                 <span>Work jobs for coins,</span>
             </div>
             <div className={s.feature}>
-                <picture><img src="features/rob.png" alt="a pic" /></picture>
+                <picture><img src="features/rob.png" alt="a pic" className={s.featureImg} /></picture>
                 <span>Rob other users for their coins,</span>
             </div>
             <div className={s.feature}>
-                <picture><img src="features/shar4e.png" alt="a pic" /></picture>
+                <picture><img src="features/shar4e.png" alt="a pic"  className={s.featureImg}/></picture>
                 <span>Share your coins to those in need,</span>
             </div>
             <div className={s.feature}>
-                <picture><img src="features/shurg.png" alt="a pic" /></picture>
+                <picture><img src="features/shurg.png" alt="a pic"  className={s.featureImg}/></picture>
                 <span>..or just casually climb the leaderboard with no worries.</span>
             </div>
             <div className={s.feature}>
-                <picture><img src="features/upcoming.png" alt="a pic" /></picture>
+                <picture><img src="features/upcoming.png" alt="a pic" className={s.featureImg}/></picture>
                 <span>and (soon to be) many more!</span>
             </div>
         </div>
         <span className={s.goDoIt}>
-            So what you waiting for? Go
+            So what you waiting for? Go&nbsp;
         <a
             href="https://discord.com/oauth2/authorize?client_id=701280304182067251&permissions=412317141056&scope=applications.commands%20bot"
             id="inviteRed"
@@ -81,12 +74,15 @@ const Home = () => {
         >
             invite
         </a>
-        the bot right now
+        	&nbsp;the bot right now
         </span>
-        <div id="links">
+        <div className={s.links}>
             <div className={s.buttons}>
-                <button type="button" className="btn btnStyle" onClick={() => { window.location.href = '/tos/'; }}>
+                <button type="button" className={s.btn} onClick={() => { window.location.href = '/tos/'; }}>
                     Terms Of Service
+                </button>
+                <button type="button" className={s.btn} onClick={() => { window.location.href = '/pp/'; }}>
+                    Privacy Policy
                 </button>
             </div>
         </div>
