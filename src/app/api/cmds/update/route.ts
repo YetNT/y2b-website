@@ -1,14 +1,21 @@
 // Route to overwrite the entire commands.json file.
 // POST https://y2b.pages.dev/api/cmds/update
 import { NextRequest, NextResponse } from "next/server";
+export const runtime = "edge";
 import model, { ICommand } from "@/models/cmdModel";
 import connectToDatabase from "@/lib/mongo";
-export const runtime = "edge";
+import { ApiRoute } from "@/lib/apiTypes";
 
+export const cmdsUpdate = new ApiRoute(
+    "/cmds/update/",
+    "POST",
+    "Batch update all the commands in the database"
+);
 // Secret password for authentication
 const pass = process.env.PSWD;
 
 async function readStreamToArray(stream: any | null): Promise<any[]> {
+    "use server";
     if (!stream) {
         return [];
     }

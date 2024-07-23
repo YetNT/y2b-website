@@ -1,16 +1,22 @@
 // src/app/api/cmds/[command]/route.ts
 import { NextRequest, NextResponse } from "next/server";
+export const runtime = "edge";
 import Command from "@/models/cmdModel";
 import connectToDatabase from "@/lib/mongo";
+import { ApiRoute } from "@/lib/apiTypes";
 
-export const runtime = "edge";
-
+export const cmdsSlug = new ApiRoute(
+    "/cmds/[slug]/",
+    "GET",
+    "Get a single command."
+);
 const pass = process.env.PSWD;
 
 export async function GET(
     request: NextRequest,
     { params }: { params: { slug: string } }
 ) {
+    "use server";
     try {
         const password = request.headers.get("Authorization");
         if (password !== pass)

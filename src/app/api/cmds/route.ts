@@ -1,16 +1,23 @@
 // Route to get the entire commands.json file.
 // GET https://y2b.pages.dev/api/cmds/
 import { NextRequest, NextResponse } from "next/server";
+export const runtime = "edge";
 import Command from "@/models/cmdModel";
 import connectToDatabase from "@/lib/mongo";
 import { ApiCommand, docToApi, Subcommand } from "@/lib/commands";
+import { ApiRoute } from "@/lib/apiTypes";
 
-export const runtime = "edge";
+export const cmds = new ApiRoute(
+    "/cmds/",
+    "GET",
+    "Gets an array of all the commands in the DB"
+);
 
 // Secret password for authentication
 const SECRET_PASSWORD = process.env.PSWD;
 
 export async function GET(request: NextRequest) {
+    "use server";
     // Check for the correct password in the headers
     const password = request.headers.get("Authorization");
     if (password !== SECRET_PASSWORD) {
@@ -21,7 +28,11 @@ export async function GET(request: NextRequest) {
         await connectToDatabase();
 
         const commandsDb = await Command.find({});
-        const commands: ApiCommand[] = commandsDb.map((cmd) => docToApi(cmd));
+        const commands: ApiCommand[] = await Promise.all(
+            commandsDb.map(async (cmd) => {
+                return await docToApi(cmd);
+            })
+        );
 
         return NextResponse.json(
             {

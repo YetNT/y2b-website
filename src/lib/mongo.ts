@@ -1,15 +1,6 @@
 // lib/mongodb.ts
 import mongoose from "mongoose";
 
-// dont ask, it works
-const MONGODB_URI = process.env.MONGODB_URI;
-
-if (!MONGODB_URI) {
-    throw new Error(
-        "Please define the MONGODB_URI environment variable inside .env.local"
-    );
-}
-
 let connections: number = 0;
 
 /**
@@ -22,14 +13,15 @@ let connections: number = 0;
  * If the connection fails, it will reject with an error.
  */
 async function connectToDatabase(): Promise<void> {
+    "use server";
     try {
-        if (mongoose.connections[0].readyState) {
+        if (mongoose.connections && mongoose.connections[0].readyState) {
             // Use existing connection if already connected
             return;
         }
 
         // Connect to the database
-        await mongoose.connect(MONGODB_URI ?? "");
+        await mongoose.connect(process.env.MONGODB_URI ?? "");
         connections++;
         console.log(
             `Connection to MongoDB has been established {${connections}}`

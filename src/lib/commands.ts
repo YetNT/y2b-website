@@ -1,3 +1,5 @@
+"use server";
+
 import { Document } from "mongoose";
 import { ICommand } from "../models/cmdModel";
 
@@ -25,13 +27,14 @@ export interface ApiCommand {
  * a 'subcommands' field with an array of Subcommand objects. Otherwise, it will
  * include 'description' and 'use' fields.
  */
-export function docToApi(
+export async function docToApi(
     cmd: Document<unknown, {}, ICommand> &
         ICommand &
         Required<{
             _id: string;
         }>
-): ApiCommand {
+): Promise<ApiCommand> {
+    "use server";
     const command: ApiCommand = {
         name: cmd._id,
     };
