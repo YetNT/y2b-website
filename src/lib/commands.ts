@@ -1,5 +1,5 @@
 import { Document } from "mongoose";
-import { ICommand } from "../models/Commands";
+import { ICommand } from "../models/cmdModel";
 
 export interface Subcommand {
     name: string;

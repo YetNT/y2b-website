@@ -1,6 +1,6 @@
 // src/app/api/cmds/[command]/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import Command from "@/models/Commands";
+import Command from "@/models/cmdModel";
 import connectToDatabase from "@/lib/mongo";
 
 export const runtime = "edge";
