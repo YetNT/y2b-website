@@ -1,22 +1,17 @@
-// GET https://y2b.pages.dev/api/cmds/[command]
+// src/app/api/cmds/[command]/route.ts
 import { NextRequest, NextResponse } from "next/server";
-export const runtime = "edge";
-const pass = process.env.PSWD;
-import commands from "../../../commands/commands.json";
-import { Command } from "@/app/commands/commands";
+import Command from "@/models/Commands";
+import connectToDatabase from "@/lib/mongo";
 
-// export async function generateStaticParams() {
-//     return commands.map((cmd) => ({
-//         slug: cmd.name,
-//     }));
-// }
+export const runtime = "edge";
+
+const pass = process.env.PSWD;
 
 export async function GET(
     request: NextRequest,
     { params }: { params: { slug: string } }
 ) {
     try {
-        // Check for the correct password in the headers
         const password = request.headers.get("Authorization");
         if (password !== pass)
             return NextResponse.json(
@@ -24,27 +19,28 @@ export async function GET(
                 { status: 401 }
             );
 
+        connectToDatabase();
+
         const { slug } = params;
-        const command = slug;
+        const commandId = slug;
 
-        let status = 400;
-        let body: Command | object = {};
-        const cmd = commands.find((cmd) => cmd.name === command);
+        const command = await Command.findById(commandId);
 
-        if (cmd) {
-            status = 200;
-            body = cmd;
+        if (!command) {
+            return NextResponse.json(
+                { message: "Command not found" },
+                { status: 404 }
+            );
         }
 
-        return NextResponse.json(body, {
-            status,
+        return NextResponse.json(command, {
+            status: 200,
         });
     } catch (error) {
+        console.error(error);
         return NextResponse.json(
             { error: "An error occurred", details: error },
             { status: 500 }
         );
     }
 }
-
-// export const dynamic = "force-static"; // 'auto' | 'force-dynamic' | 'error' | 'force-static';

@@ -2,8 +2,8 @@
 
 import React from 'react';
 import s from './page.module.css';
-import commands from './commands';
-import type {Command, Subcommand} from './commands'
+import commands from '../../lib/commands';
+import type {Command, Subcommand} from '../../lib/commands'
 
 const searchFor = () => {
     const input = document.getElementById("search") as HTMLInputElement;

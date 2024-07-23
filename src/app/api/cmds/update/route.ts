@@ -1,34 +1,54 @@
 // Route to overwrite the entire commands.json file.
 // POST https://y2b.pages.dev/api/cmds/update
 import { NextRequest, NextResponse } from "next/server";
+import model, { ICommand } from "@/models/Commands";
+import connectToDatabase from "@/lib/mongo";
 export const runtime = "edge";
-import fs from "fs";
-import path from "path";
-
-// Path to the JSON file
-const jsonFilePath = path.resolve("src", "app", "commands", "test.json");
 
 // Secret password for authentication
 const pass = process.env.PSWD;
 
-export async function POST(request: NextRequest) {
-    // Check for the correct password in the headers
-    const password = request.headers.get("Authorization");
+async function readStreamToArray(stream: any | null): Promise<any[]> {
+    if (!stream) {
+        return [];
+    }
+
+    const chunks: Uint8Array[] = [];
+    for await (const chunk of stream) {
+        chunks.push(chunk);
+    }
+    return JSON.parse(Buffer.concat(chunks).toString());
+}
+
+export async function POST(req: NextRequest) {
+    const password = req.headers.get("Authorization");
     if (password !== pass) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    const commands = await readStreamToArray(req.body);
+
     try {
-        // Get the JSON data from the request body
-        const data = await request.json();
+        await connectToDatabase();
+        // Remove all existing commands
+        await model.deleteMany({});
 
-        // Write the new data to the JSON file, effectively overwriting the existing content
-        fs.writeFileSync(jsonFilePath, JSON.stringify(data, null, 2), "utf-8");
+        // Insert new commands
+        let formattedCommands: any[] = [];
+        if (commands) {
+            formattedCommands = commands.map((cmd) => ({
+                _id: cmd._id, // Use '_id' as '_id'
+                description: cmd.description ?? "",
+                use: cmd.use ?? "",
+                subcommands: cmd.subcommands ?? [],
+            }));
+        }
 
-        // Return success response
+        const updatedCommands = await model.insertMany(formattedCommands);
+
         return NextResponse.json(
             {
-                message: "Data overwritten successfully",
+                updatedCommands,
             },
             {
                 status: 200,
@@ -36,7 +56,7 @@ export async function POST(request: NextRequest) {
         );
     } catch (error) {
         return NextResponse.json(
-            { error: "An error occurred", details: error },
+            { error: "Failed to update commands" },
             { status: 500 }
         );
     }
