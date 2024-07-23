@@ -2,8 +2,8 @@
 
 import React from 'react';
 import s from './page.module.css';
-import commands from '../../lib/commands';
-import type {Command, Subcommand} from '../../lib/commands'
+import commands from '@/app/commands/commands.json';
+import type {ApiCommand, Subcommand} from '../../lib/commands'
 
 const searchFor = () => {
     const input = document.getElementById("search") as HTMLInputElement;
@@ -15,7 +15,7 @@ const searchFor = () => {
     }
 };
 
-const CommandComponent = ({ c }: { c: Command }) => (
+const CommandComponent = ({ c }: { c: ApiCommand }) => (
     <div id={c.name.toLowerCase()} className={s.command}>
         <div className={s.commandHead}>
             <div className={s.commandName}>{c.name}</div>
