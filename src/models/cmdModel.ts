@@ -1,13 +1,12 @@
-// src/models/Command.ts
-import mongoose, { Schema, Document } from "mongoose";
+import { Schema, Document } from "mongoose";
 
-export interface ISubcommand extends Document {
+export interface ISubcommand {
     name: string;
     description: string;
     use: string;
 }
 
-export interface ICommand extends Document {
+export interface ICommand {
     _id: string;
     description?: string;
     use?: string;
@@ -20,18 +19,14 @@ const SubcommandSchema: Schema = new Schema({
     use: { type: String, required: true },
 });
 
-const CommandSchema: Schema = new Schema(
-    {
-        _id: { type: String, required: true },
-        description: { type: String },
-        use: { type: String },
-        subcommands: { type: [SubcommandSchema] },
-    },
-    { _id: true }
-);
+const CommandSchema: Schema = new Schema({
+    _id: { type: String, required: true },
+    description: { type: String },
+    use: { type: String },
+    subcommands: [SubcommandSchema],
+});
 
-const Command =
-    mongoose.models?.Command ||
-    mongoose.model<ICommand>("Command", CommandSchema);
+// With the MongoDB native driver, you typically interact with collections directly
+// const Command = mongoose.model<ICommand>("Command", CommandSchema);
 
-export default Command;
+export default CommandSchema; // Export the schema for direct use in MongoDB operations

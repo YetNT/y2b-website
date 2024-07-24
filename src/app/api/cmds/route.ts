@@ -2,7 +2,7 @@
 // GET https://y2b.pages.dev/api/cmds/
 import { NextRequest, NextResponse } from "next/server";
 export const runtime = "edge";
-import Command from "@/models/cmdModel";
+import Command, { ICommand } from "@/models/cmdModel";
 import connectToDatabase from "@/lib/mongo";
 import { ApiCommand, docToApi, Subcommand } from "@/lib/commands";
 import { ApiRoute } from "@/lib/apiTypes";
@@ -25,11 +25,14 @@ export async function GET(request: NextRequest) {
     }
 
     try {
-        await connectToDatabase();
+        const client = await connectToDatabase();
+        const commandsDb: any = client
+            .db("site")
+            .collection("commands")
+            .find({}) as unknown as ICommand[];
 
-        const commandsDb = await Command.find({});
         const commands: ApiCommand[] = await Promise.all(
-            commandsDb.map(async (cmd) => {
+            commandsDb.map(async (cmd: ICommand) => {
                 return await docToApi(cmd);
             })
         );

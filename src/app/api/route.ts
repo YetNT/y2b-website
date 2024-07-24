@@ -2,9 +2,9 @@
 // GET https://y2b.pages.dev/api/cmds/
 import { NextRequest, NextResponse } from "next/server";
 export const runtime = "edge";
-import { cmds } from "./cmds/route";
-import { cmdsSlug } from "./cmds/[slug]/route";
-import { cmdsUpdate } from "./cmds/update/route";
+import { cmds } from "../api/cmds/route";
+import { cmdsSlug } from "../api/cmds/[slug]/route";
+import { cmdsUpdate } from "../api/cmds/update/route";
 import { ApiRoute, Route } from "@/lib/apiTypes";
 
 // dont ask why i do it like this, i want to, it's my code.

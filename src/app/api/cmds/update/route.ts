@@ -16,6 +16,7 @@ const pass = process.env.PSWD;
 
 async function readStreamToArray(stream: any | null): Promise<any[]> {
     "use server";
+    // jkrfcdo j
     if (!stream) {
         return [];
     }
@@ -36,9 +37,10 @@ export async function POST(req: NextRequest) {
     const commands = await readStreamToArray(req.body);
 
     try {
-        await connectToDatabase();
+        const client = await connectToDatabase();
+        const collection = client.db("site").collection("commands");
         // Remove all existing commands
-        await model.deleteMany({});
+        await collection.deleteMany({});
 
         // Insert new commands
         let formattedCommands: any[] = [];
@@ -51,7 +53,7 @@ export async function POST(req: NextRequest) {
             }));
         }
 
-        const updatedCommands = await model.insertMany(formattedCommands);
+        const updatedCommands = await collection.insertMany(formattedCommands);
 
         return NextResponse.json(
             {

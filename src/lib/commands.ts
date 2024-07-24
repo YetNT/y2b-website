@@ -28,11 +28,12 @@ export interface ApiCommand {
  * include 'description' and 'use' fields.
  */
 export async function docToApi(
-    cmd: Document<unknown, {}, ICommand> &
-        ICommand &
-        Required<{
-            _id: string;
-        }>
+    cmd: ICommand
+    // cmd: Document<unknown, {}, ICommand> &
+    //     ICommand &
+    //     Required<{
+    //         _id: string;
+    //     }>
 ): Promise<ApiCommand> {
     "use server";
     const command: ApiCommand = {
