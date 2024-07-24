@@ -1,6 +1,5 @@
 // src/app/api/cmds/[command]/route.ts
 import { NextRequest, NextResponse } from "next/server";
-export const runtime = "edge";
 import connectToDatabase from "@/lib/mongo";
 import { ApiRoute } from "@/lib/apiTypes";
 

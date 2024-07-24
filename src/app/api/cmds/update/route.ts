@@ -1,7 +1,6 @@
 // Route to overwrite the entire commands.json file.
 // POST https://y2b.pages.dev/api/cmds/update
 import { NextRequest, NextResponse } from "next/server";
-export const runtime = "edge";
 import connectToDatabase from "@/lib/mongo";
 import { ApiRoute } from "@/lib/apiTypes";
 import { ApiCommand } from "@/lib/commands";

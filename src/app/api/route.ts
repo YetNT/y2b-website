@@ -1,7 +1,6 @@
 // Route to get the entire commands.json file.
 // GET https://y2b.pages.dev/api/cmds/
 import { NextRequest, NextResponse } from "next/server";
-export const runtime = "edge";
 import { cmds } from "../api/cmds/route";
 import { cmdsSlug } from "../api/cmds/[slug]/route";
 import { cmdsUpdate } from "../api/cmds/update/route";

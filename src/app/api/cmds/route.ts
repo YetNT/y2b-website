@@ -1,7 +1,6 @@
 // Route to get the entire commands.json file.
 // GET https://y2b.pages.dev/api/cmds/
 import { NextRequest, NextResponse } from "next/server";
-export const runtime = "edge";
 import { ICommand } from "@/models/cmdModel";
 import connectToDatabase from "@/lib/mongo";
 import { ApiCommand, docToApi, Subcommand } from "@/lib/commands";
