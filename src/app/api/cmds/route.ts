@@ -12,16 +12,16 @@ export const cmds = new ApiRoute(
     "Gets an array of all the commands in the DB"
 );
 
-// Secret password for authentication
-const SECRET_PASSWORD = process.env.PSWD;
+// // Secret password for authentication
+// const SECRET_PASSWORD = process.env.PSWD;
 
 export async function GET(request: NextRequest) {
     "use server";
     // Check for the correct password in the headers
-    const password = request.headers.get("Authorization");
-    if (password !== SECRET_PASSWORD) {
-        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
+    // const password = request.headers.get("Authorization");
+    // if (password !== SECRET_PASSWORD) {
+    //     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    // }
 
     try {
         const client = await connectToDatabase();
@@ -30,7 +30,6 @@ export async function GET(request: NextRequest) {
             .collection("commands")
             .find()
             .toArray()) as unknown as ICommand[];
-        console.log(commandsDb);
 
         const commands: ApiCommand[] = await Promise.all(
             commandsDb.map(async (cmd) => {

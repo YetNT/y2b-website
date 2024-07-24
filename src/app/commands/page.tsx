@@ -1,9 +1,8 @@
 "use client"
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import s from './page.module.css';
-import commands from '@/app/commands/commands.json';
-import type {ApiCommand, Subcommand} from '../../lib/commands'
+import type { ApiCommand, Subcommand } from '../../lib/commands';
 
 const searchFor = () => {
     const input = document.getElementById("search") as HTMLInputElement;
@@ -42,6 +41,27 @@ const CommandComponent = ({ c }: { c: ApiCommand }) => (
 );
 
 const Commands = () => {
+    const [commands, setCommands] = useState<ApiCommand[]>([]);
+
+    useEffect(() => {
+        const fetchCommands = async () => {
+            try {
+
+                const response = await fetch('/api/cmds/');
+                if (response.ok) {
+                    const data = await response.json();
+                    setCommands(data.commands);
+                } else {
+                    console.error('Failed to fetch commands:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error fetching commands:', error);
+            }
+        };
+
+        fetchCommands();
+    }, []);
+
     return (
         <main className={s.main}>
             <h1 className={s.h1}>Commands</h1>
