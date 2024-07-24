@@ -25,13 +25,15 @@ export async function GET(request: NextRequest) {
 
     try {
         const client = await connectToDatabase();
-        const commandsDb: any = client
+        const commandsDb: ICommand[] = (await client
             .db("site")
             .collection("commands")
-            .find({}) as unknown as ICommand[];
+            .find()
+            .toArray()) as unknown as ICommand[];
+        console.log(commandsDb);
 
         const commands: ApiCommand[] = await Promise.all(
-            commandsDb.map(async (cmd: ICommand) => {
+            commandsDb.map(async (cmd) => {
                 return await docToApi(cmd);
             })
         );
@@ -45,6 +47,7 @@ export async function GET(request: NextRequest) {
             }
         );
     } catch (error) {
+        console.error(error);
         return NextResponse.json(
             { error: "An error occurred", details: error },
             { status: 500 }
