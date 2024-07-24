@@ -3,14 +3,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ICommand } from "@/models/cmdModel";
 import connectToDatabase from "@/lib/mongo";
-import { ApiCommand, docToApi, Subcommand } from "@/lib/commands";
-import { ApiRoute } from "@/lib/apiTypes";
-
-export const cmds = new ApiRoute(
-    "/cmds/",
-    "GET",
-    "Gets an array of all the commands in the DB"
-);
+import { ApiCommand, docToApi } from "@/lib/commands";
 
 // // Secret password for authentication
 // const SECRET_PASSWORD = process.env.PSWD;

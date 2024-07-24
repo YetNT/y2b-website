@@ -1,15 +1,9 @@
 // src/app/api/cmds/[command]/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongo";
-import { ApiRoute } from "@/lib/apiTypes";
 import { docToApi } from "@/lib/commands";
 import { ICommand } from "@/models/cmdModel";
 
-export const cmdsSlug = new ApiRoute(
-    "/cmds/[slug]/",
-    "GET",
-    "Get a single command."
-);
 const pass = process.env.PSWD;
 
 export async function GET(

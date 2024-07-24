@@ -1,14 +1,23 @@
 // Route to get the entire commands.json file.
 // GET https://y2b.pages.dev/api/cmds/
 import { NextRequest, NextResponse } from "next/server";
-import { cmds } from "../api/cmds/route";
-import { cmdsSlug } from "../api/cmds/[slug]/route";
-import { cmdsUpdate } from "../api/cmds/update/route";
+const cmds = new ApiRoute(
+    "/cmds/",
+    "GET",
+    "Gets an array of all the commands in the DB",
+    false
+);
+const cmdsSlug = new ApiRoute("/cmds/[slug]/", "GET", "Get a single command.");
+const cmdsUpdate = new ApiRoute(
+    "/cmds/update/",
+    "POST",
+    "Batch update all the commands in the database"
+);
 import { ApiRoute, Route } from "@/lib/apiTypes";
 
 // dont ask why i do it like this, i want to, it's my code.
 const arr = [
-    new ApiRoute("/", "GET", "how do you think you're here"),
+    new ApiRoute("/", "GET", "how do you think you're here", false),
     cmds,
     cmdsSlug,
     cmdsUpdate,

@@ -2,15 +2,8 @@
 // POST https://y2b.pages.dev/api/cmds/update
 import { NextRequest, NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongo";
-import { ApiRoute } from "@/lib/apiTypes";
 import { ApiCommand } from "@/lib/commands";
 import { ICommand } from "@/models/cmdModel";
-
-export const cmdsUpdate = new ApiRoute(
-    "/cmds/update/",
-    "POST",
-    "Batch update all the commands in the database"
-);
 // Secret password for authentication
 const pass = process.env.PSWD;
 
