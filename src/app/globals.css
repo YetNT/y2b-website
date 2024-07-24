@@ -134,3 +134,9 @@ textarea {
         text-wrap: balance;
     }
 }
+
+.copyright {
+    font-size: 0.4cm;
+    padding-top: 4em;
+    padding-bottom: 4em;
+}

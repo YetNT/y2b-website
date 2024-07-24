@@ -83,11 +83,6 @@ const Commands = () => {
                     />
                 ))}
             </div>
-            <footer>
-                <div className={s.copyright}>
-                    &copy;2024 Yet 2.0 Bot. All rights reserved.
-                </div>
-            </footer>
         </main>
     );
 };

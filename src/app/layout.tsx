@@ -41,6 +41,13 @@ export default function RootLayout({
                     </div>
                 </nav>
                 {children}
+                <footer>
+                    <div className="copyright">
+                        <center>
+                            &copy;2024 Yet 2.0 Bot. All rights reserved.
+                        </center>
+                    </div>
+                </footer>
             </body>
         </html>
     );
