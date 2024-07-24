@@ -4,7 +4,7 @@ import connectToDatabase from "@/lib/mongo";
 import { docToApi } from "@/lib/commands";
 import { ICommand } from "@/models/cmdModel";
 
-const pass = process.env.PSWD;
+// const pass = process.env.PSWD;
 
 export async function GET(
     request: NextRequest,
@@ -12,12 +12,12 @@ export async function GET(
 ) {
     "use server";
     try {
-        const password = request.headers.get("Authorization");
-        if (password !== pass)
-            return NextResponse.json(
-                { error: "Unauthorized" },
-                { status: 401 }
-            );
+        // const password = request.headers.get("Authorization");
+        // if (password !== pass)
+        //     return NextResponse.json(
+        //         { error: "Unauthorized" },
+        //         { status: 401 }
+        //     );
 
         const client = await connectToDatabase();
 

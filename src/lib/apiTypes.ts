@@ -9,9 +9,9 @@ export class ApiRoute {
     path: string;
     method: "GET" | "POST";
     description: string;
-    r: boolean = true;
+    r: boolean = false;
 
-    constructor(p: string, m: "GET" | "POST", d: string, r: boolean = true) {
+    constructor(p: string, m: "GET" | "POST", d: string, r: boolean = false) {
         this.path = p;
         this.method = m;
         this.description = d;
