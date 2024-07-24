@@ -2,6 +2,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongo";
 import { ApiRoute } from "@/lib/apiTypes";
+import { docToApi } from "@/lib/commands";
+import { ICommand } from "@/models/cmdModel";
 
 export const cmdsSlug = new ApiRoute(
     "/cmds/[slug]/",
@@ -28,7 +30,7 @@ export async function GET(
         const { slug } = params;
         const commandName = slug;
 
-        const command = client
+        const command = await client
             .db("site")
             .collection("commands")
             .findOne({ name: commandName });
@@ -40,7 +42,7 @@ export async function GET(
             );
         }
 
-        return NextResponse.json(command, {
+        return NextResponse.json(await docToApi(command as any as ICommand), {
             status: 200,
         });
     } catch (error) {
