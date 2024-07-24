@@ -14,7 +14,7 @@ export interface ICommand {
 }
 
 // const SubcommandSchema: Schema = new Schema({
-//     name: { type: String, required: true },
+//    name: { type: String, required: true },
 //     description: { type: String, required: true },
 //     use: { type: String, required: true },
 // });
