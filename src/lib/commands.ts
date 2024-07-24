@@ -1,6 +1,4 @@
-"use server";
-
-import { Document } from "mongoose";
+// import { Document } from "mongoose";
 import { ICommand } from "../models/cmdModel";
 
 export interface Subcommand {
@@ -37,7 +35,7 @@ export async function docToApi(
 ): Promise<ApiCommand> {
     "use server";
     const command: ApiCommand = {
-        name: cmd._id,
+        name: cmd.name,
     };
 
     // If a command has subcommands, it's use and description do not exist.

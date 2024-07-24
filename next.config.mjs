@@ -5,7 +5,7 @@ const nextConfig = {
     },
     experimental: {
         esmExternals: "loose", // <-- add this
-        serverComponentsExternalPackages: ["mongoose"],
+        serverComponentsExternalPackages: ["mongodb"],
     },
 };
 

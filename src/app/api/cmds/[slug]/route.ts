@@ -1,7 +1,6 @@
 // src/app/api/cmds/[command]/route.ts
 import { NextRequest, NextResponse } from "next/server";
 export const runtime = "edge";
-import Command from "@/models/cmdModel";
 import connectToDatabase from "@/lib/mongo";
 import { ApiRoute } from "@/lib/apiTypes";
 
@@ -25,12 +24,15 @@ export async function GET(
                 { status: 401 }
             );
 
-        connectToDatabase();
+        const client = await connectToDatabase();
 
         const { slug } = params;
-        const commandId = slug;
+        const commandName = slug;
 
-        const command = await Command.findById(commandId);
+        const command = client
+            .db("site")
+            .collection("commands")
+            .findOne({ name: commandName });
 
         if (!command) {
             return NextResponse.json(

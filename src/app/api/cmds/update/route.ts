@@ -2,9 +2,10 @@
 // POST https://y2b.pages.dev/api/cmds/update
 import { NextRequest, NextResponse } from "next/server";
 export const runtime = "edge";
-import model, { ICommand } from "@/models/cmdModel";
 import connectToDatabase from "@/lib/mongo";
 import { ApiRoute } from "@/lib/apiTypes";
+import { ApiCommand } from "@/lib/commands";
+import { ICommand } from "@/models/cmdModel";
 
 export const cmdsUpdate = new ApiRoute(
     "/cmds/update/",
@@ -43,14 +44,16 @@ export async function POST(req: NextRequest) {
         await collection.deleteMany({});
 
         // Insert new commands
-        let formattedCommands: any[] = [];
+        let formattedCommands: ICommand[] = [];
         if (commands) {
-            formattedCommands = commands.map((cmd) => ({
-                _id: cmd._id, // Use '_id' as '_id'
-                description: cmd.description ?? "",
-                use: cmd.use ?? "",
-                subcommands: cmd.subcommands ?? [],
-            }));
+            formattedCommands = commands.map(
+                (cmd: ApiCommand): ICommand => ({
+                    name: cmd.name, // Use '_id' as '_id'
+                    description: cmd.description ?? "",
+                    use: cmd.use ?? "",
+                    subcommands: cmd.subcommands ?? [],
+                })
+            );
         }
 
         const updatedCommands = await collection.insertMany(formattedCommands);

@@ -2,7 +2,7 @@
 // GET https://y2b.pages.dev/api/cmds/
 import { NextRequest, NextResponse } from "next/server";
 export const runtime = "edge";
-import Command, { ICommand } from "@/models/cmdModel";
+import { ICommand } from "@/models/cmdModel";
 import connectToDatabase from "@/lib/mongo";
 import { ApiCommand, docToApi, Subcommand } from "@/lib/commands";
 import { ApiRoute } from "@/lib/apiTypes";
