@@ -1,8 +1,7 @@
 // src/app/api/cmds/[command]/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongo";
-import { docToApi } from "@/lib/commands";
-import { ICommand } from "@/models/cmdModel";
+import { docToApi, ICommand } from "@/lib/commands";
 
 // const pass = process.env.PSWD;
 

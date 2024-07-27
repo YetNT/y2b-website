@@ -1,9 +1,8 @@
 // Route to get the entire commands.json file.
 // GET https://y2b.pages.dev/api/cmds/
 import { NextRequest, NextResponse } from "next/server";
-import { ICommand } from "@/models/cmdModel";
 import connectToDatabase from "@/lib/mongo";
-import { ApiCommand, docToApi } from "@/lib/commands";
+import { ApiCommand, docToApi, ICommand } from "@/lib/commands";
 
 // // Secret password for authentication
 // const SECRET_PASSWORD = process.env.PSWD;

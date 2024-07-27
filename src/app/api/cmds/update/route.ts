@@ -2,8 +2,7 @@
 // POST https://y2b.pages.dev/api/cmds/update
 import { NextRequest, NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongo";
-import { ApiCommand } from "@/lib/commands";
-import { ICommand } from "@/models/cmdModel";
+import { ApiCommand, ICommand } from "@/lib/commands";
 // Secret password for authentication
 const pass = process.env.PSWD;
 
