@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import s from './page.module.css';
-import type { ApiCommand, Subcommand } from '../../lib/commands';
+import type { ApiCommand } from '../../lib/commands';
 
 const searchFor = () => {
     const input = document.getElementById("search") as HTMLInputElement;
@@ -27,7 +27,7 @@ const CommandComponent = ({ c }: { c: ApiCommand }) => (
             {/* Render subcommands only if it is defined and not empty */}
             {c.subcommands && c.subcommands.length > 0 && (
                 <div className={s.subcommands}>
-                    {c.subcommands.map((sub: Subcommand, index) => (
+                    {c.subcommands.map((sub, index) => (
                         <div key={index} className={s.subcommand} id={c.name.toLowerCase() + " " + sub.name.toLowerCase()}>
                             <div className={s.subcommandHead}>
                                 <div className={s.subcommandName}>{sub.name}</div>
