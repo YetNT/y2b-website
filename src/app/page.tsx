@@ -3,6 +3,43 @@
 "use client";
 
 import s from './page.module.css'
+
+const Features = () => {
+    /**
+     * @interface Feature
+     */
+    interface Feature {
+        src: string;
+        alt?: string;
+        desc: string;
+    }
+
+    function alt(cmd: string): string {
+        return `Image showing the use of the /${cmd} slash command.`;
+    }
+
+    const features: Feature[] = [
+        { src: "features/work.png", desc: "Work jobs for coins,", alt: alt("work") },
+        { src: "features/rob.png", desc: "Rob other users for their coins,", alt: alt("rob") },
+        { src: "features/shar4e.png", desc: "Share your coins to those in need,", alt: alt("share") },
+        { src: "features/shurg.png", desc: "or just casually climb the leaderboard with no", alt: "Random meme image." },
+        { src: "features/upcoming.png", desc: "and (soon to be) many more!", alt: alt("crystalize") },
+    ]
+
+    return (
+        <div className={s.features}>
+            {features.map((feature, index) => (
+                <div className={s.feature} key={index}>
+                    <picture>
+                        <img src={feature.src} alt={feature.alt || "a pic"} className={s.featureImg} />
+                    </picture>
+                    <span>{feature.desc}</span>
+                </div>
+            ))}
+        </div>
+    )
+}
+
 const Home = () => {
     const newPopup = (url: string) => {
             window.open(
@@ -41,28 +78,7 @@ const Home = () => {
             }}> Github</button>
         </div>
         <picture><img src="coinz.png" alt="coin" id="coin" className={s.coin} width={100} height={100} onContextMenu={(e) => e.preventDefault()} /></picture>
-        <div className={s.features}>
-            <div className={s.feature}>
-                <picture><img src="features/work.png" alt="a pic" className={s.featureImg}/></picture>
-                <span>Work jobs for coins,</span>
-            </div>
-            <div className={s.feature}>
-                <picture><img src="features/rob.png" alt="a pic" className={s.featureImg} /></picture>
-                <span>Rob other users for their coins,</span>
-            </div>
-            <div className={s.feature}>
-                <picture><img src="features/shar4e.png" alt="a pic"  className={s.featureImg}/></picture>
-                <span>Share your coins to those in need,</span>
-            </div>
-            <div className={s.feature}>
-                <picture><img src="features/shurg.png" alt="a pic"  className={s.featureImg}/></picture>
-                <span>..or just casually climb the leaderboard with no worries.</span>
-            </div>
-            <div className={s.feature}>
-                <picture><img src="features/upcoming.png" alt="a pic" className={s.featureImg}/></picture>
-                <span>and (soon to be) many more!</span>
-            </div>
-        </div>
+        <Features />
         <span className={s.goDoIt}>
             So what you waiting for? Go&nbsp;
         <a

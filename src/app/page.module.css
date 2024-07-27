@@ -102,37 +102,36 @@
     flex-direction: column;
 }
 
-/* .feature */
+/* .feature { */
 .feature {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     border: dimgrey solid 4px;
     border-radius: 1em;
     margin: 1.2cm;
-}
-
-/* .features div:nth-child(odd) */
-.features div:nth-child(odd) {
     padding-right: 10em;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-/* .features div:nth-child(even) */
-.features div:nth-child(even) {
-    justify-content: space-between;
+/* .features div:nth-child(even) { */
+/* .evenFeature { 
+}*/
+
+/* .features div:nth-child(odd) { */
+/* .oddFeature {
     flex-direction: row-reverse;
-    padding-left: 10em;
-}
+    padding-right: 10em;
+    justify-content: space-evenly;
+}  */
 
 /* .features div img */
 .featureImg {
-    max-width: 30%;
+    max-width: 40%;
     height: auto;
     z-index: -1;
     border-radius: 1em;
 }
-
 /* .container */
 .container {
     display: flex;
@@ -161,12 +160,12 @@
     .features div:nth-child(even) {
         justify-content: right;
         flex-direction: column-reverse;
+        padding-left: 0px; /* this was in the commented out selector below*/
     }
 
     /* .features div:nth-child(even) */
-    .features div:nth-child(even) {
-        padding-left: 0px;
-    }
+    /* .features div:nth-child(even) {
+    } */
 
     /* .features div:nth-child(odd) */
     .features div:nth-child(odd) {

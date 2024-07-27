@@ -1,7 +1,18 @@
 // import { Document } from "mongoose";
-import { ICommand } from "../models/cmdModel";
+export interface ISubcommand {
+    name: string;
+    description: string;
+    use: string;
+}
 
-export interface Subcommand {
+export interface ICommand {
+    name: string;
+    description?: string;
+    use?: string;
+    subcommands?: ISubcommand[];
+}
+
+export interface ApiSubcommand {
     name: string;
     description: string;
     use: string;
@@ -11,7 +22,7 @@ export interface ApiCommand {
     name: string;
     description?: string;
     use?: string;
-    subcommands?: Subcommand[] | undefined;
+    subcommands?: ApiSubcommand[];
 }
 
 /**
