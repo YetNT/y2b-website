@@ -1,6 +1,6 @@
 # y2b-website
 
-## https://yetbot.tk
+## https://y2b.vercel.app
 
 Yet 2.0 website, nothing else
 
