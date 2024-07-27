@@ -31,6 +31,19 @@
     animation: move 5s cubic-bezier(0, 1.33, 0.91, 0.12) infinite;
 }
 
+#img:hover {
+    border: 0.1cm solid orange;
+    border-radius: 20%;
+}
+
+#background {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    top: 0;
+}
+
 html {
     height: 100%;
     width: 100%;

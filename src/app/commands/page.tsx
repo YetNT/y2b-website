@@ -17,7 +17,9 @@ const searchFor = () => {
 const CommandComponent = ({ c }: { c: ApiCommand }) => (
     <div id={c.name.toLowerCase()} className={s.command}>
         <div className={s.commandHead}>
-            <div className={s.commandName}>{c.name}</div>
+            <div className={s.commandName}>{
+                c.name.charAt(0).toUpperCase() + c.name.slice(1)
+            }</div>
             <div className={s.commandUse}>{c.use || ""}</div>
         </div>
         <div className={s.commandDesc}>
@@ -69,12 +71,13 @@ const Commands = () => {
                 <input
                     type="text"
                     id="search"
-                    className={s.searchBar}
+                    className={s.input}
                     placeholder="Enter command name"
                 />
                 <button onClick={() => searchFor()} className={s.button}>Go!</button>
             </div>
             <div className={s.howTo}>[] = required, () = optional</div>
+            <div className={s.howTo}>If this page is empty, wait a bit</div>
             <div className={s.commands}>
                 {commands.map((cmd, index) => (
                     <CommandComponent
