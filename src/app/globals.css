@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background-a: #131b21;
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0px);
+    }
+    25% {
+        transform: translateX(100%);
+    }
+    50% {
+        transform: translateX(0px);
+    }
+    75% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(9px);
+    }
+}
+
+/* #img */
+#img {
+    size: 1cm;
+    align-self: center;
+    animation: move 5s cubic-bezier(0, 1.33, 0.91, 0.12) infinite;
+}
+
+#img:hover {
+    border: 0.1cm solid orange;
+    border-radius: 20%;
+}
+
+#background {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    top: 0;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    background-color: var(--background-a);
+}
+
+nav {
+    height: 40px;
+    background-color: rgba(26, 26, 31, 0.716);
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    padding: 1%;
+    display: flex;
+    flex-direction: row;
+    z-index: 2;
+    border: 2px dotted grey;
+    border-radius: 1cm;
+}
+
+nav div:nth-child(odd) {
+    /* Links */
+    display: flex; /* or inline-flex */
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-grow: 0.3;
+}
+
+nav div:nth-child(2) {
+    /* Banner (nav div img is the banner image.)*/
+    flex-grow: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav div a {
+    /* Actual link */
+    font-size: calc(100%);
+    color: #a6a6a6;
+    font-family: Open Sans, Vazirmatn, sans-serif;
+    font-style: normal;
+    line-height: 1.5;
+}
+@media only screen and (max-width: 600px) {
+    /* Do not display moving logo for phone screens */
+    nav div picture img {
+        /* The actual banner image */
+        width: 1.2cm;
+    }
+    nav div:nth-child(odd) {
+        flex-grow: 1;
+    }
+}
+a {
+    text-decoration: none;
+    color: red;
+}
+a:hover {
+    color: orange;
+    text-underline-position: auto;
+}
+
+*,
+::before,
+::after {
+    box-sizing: initial;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: revert;
+    font-weight: revert;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: revert;
+    font-feature-settings: revert;
+    font-variation-settings: revert;
+    font-size: revert;
+    font-weight: revert;
+    line-height: revert;
+    letter-spacing: revert;
+    color: revert;
+    margin: revert;
+    padding: revert;
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+.copyright {
+    font-size: 0.4cm;
+    padding-top: 4em;
+    padding-bottom: 4em;
+}

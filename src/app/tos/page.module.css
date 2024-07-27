@@ -1,0 +1,41 @@
+.main {
+    align-items: center;
+    font-family: Open Sans, Vazirmatn, sans-serif;
+    font-style: normal;
+    color: #fff;
+    display: flex; /* or inline-flex */
+    flex-direction: column;
+    padding-top: 6em;
+    padding-left: 4em;
+    padding-right: 4em;
+}
+
+.tos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3cm;
+    row-gap: 1em;
+}
+
+.tosTitle {
+    font-size: 3.1em;
+    text-decoration: underline;
+}
+
+.tosDescription {
+    font-size: 2em;
+}
+
+.h1 {
+    font-size: 3.4em;
+}
+
+.a {
+    color: orange;
+}
+
+.a:hover {
+    color: #996300;
+}
