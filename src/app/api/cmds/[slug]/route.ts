@@ -1,7 +1,7 @@
-// src/app/api/cmds/[command]/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongo";
-import { docToApi, ICommand } from "@/lib/commands";
+import { ApiCommand, ApiCommandBody, docToApi, ICommand } from "@/lib/commands";
+import readStreamToJSON from "@/lib/readstreamToJSON";
 
 // const pass = process.env.PSWD;
 
@@ -11,6 +11,9 @@ export async function GET(
 ) {
     "use server";
     try {
+        // Get a singular command
+        // GET https://y2b.pages.dev/api/cmds/[slug]
+
         // const password = request.headers.get("Authorization");
         // if (password !== pass)
         //     return NextResponse.json(
@@ -38,6 +41,63 @@ export async function GET(
         return NextResponse.json(await docToApi(command as any as ICommand), {
             status: 200,
         });
+    } catch (error) {
+        console.error(error);
+        return NextResponse.json(
+            { error: "An error occurred", details: error },
+            { status: 500 }
+        );
+    }
+}
+
+export async function PUT(
+    req: NextRequest,
+    { params }: { params: { slug: string } }
+) {
+    ("use server");
+    // Add a command or update an existing command.
+    // PUT https://y2b.pages.dev/api/cmds/[slug]
+    const password = req.headers.get("Authorization");
+    if (password !== process.env.PSWD)
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+    try {
+        const client = await connectToDatabase();
+        const collection = client.db("site").collection("commands");
+
+        const { slug } = params;
+        const commandName = slug;
+
+        console.log(req.body);
+
+        if (!req.body)
+            return NextResponse.json(
+                { error: "No command data provided" },
+                { status: 400 }
+            );
+
+        const bCmd = (await readStreamToJSON(
+            req.body
+        )) as any as ApiCommandBody;
+
+        let cmd = (await collection.findOne({
+            name: commandName,
+        })) as any as ApiCommand;
+        if (cmd) {
+            if (bCmd?.subcommands?.length !== 0) {
+                cmd.subcommands = bCmd?.subcommands;
+            }
+
+            cmd.description = bCmd?.description ?? cmd.description;
+            cmd.use = bCmd?.use ?? cmd.use;
+
+            // return NextResponse.json(
+            //     { error: "Command exists!" },
+            //     { status: 403 }
+            // );
+        }
+
+        return NextResponse.json({ message: "ok" }, { status: 200 });
     } catch (error) {
         console.error(error);
         return NextResponse.json(

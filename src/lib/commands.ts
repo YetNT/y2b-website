@@ -25,6 +25,8 @@ export interface ApiCommand {
     subcommands?: ApiSubcommand[];
 }
 
+export type ApiCommandBody = ApiCommand | undefined;
+
 /**
  * Converts a command document from the database to an API command object.
  *

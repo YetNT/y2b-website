@@ -11,9 +11,15 @@ const cmdsSlug = new ApiRoute(
     "GET",
     "Get a single command with the name [slug]."
 );
+const cmdsSlugPut = new ApiRoute(
+    "/cmds/[slug]/",
+    "PUT",
+    "Add a command with the name [slug] or update an existing commnd.",
+    true
+);
 const cmdsUpdate = new ApiRoute(
-    "/cmds/update/",
-    "POST",
+    "/cmds/",
+    "PUT",
     "Batch update all the commands in the database. (Drops everything, and inserts the given array of commands)",
     true
 );
@@ -23,8 +29,9 @@ import { ApiRoute, Route } from "@/lib/apiTypes";
 const arr = [
     new ApiRoute("/", "GET", "how do you think you're here"),
     cmds,
-    cmdsSlug,
     cmdsUpdate,
+    cmdsSlug,
+    cmdsSlugPut,
 ];
 
 export async function GET(request: NextRequest) {

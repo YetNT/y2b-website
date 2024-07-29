@@ -1,5 +1,7 @@
+type Methods = "GET" | "POST" | "PUT" | "DELETE";
+
 export type Route = {
-    method: "GET" | "POST";
+    method: Methods;
     path: string;
     description: string;
     requiresAuth: boolean;
@@ -7,11 +9,11 @@ export type Route = {
 
 export class ApiRoute {
     path: string;
-    method: "GET" | "POST";
+    method: Methods;
     description: string;
     r: boolean = false;
 
-    constructor(p: string, m: "GET" | "POST", d: string, r: boolean = false) {
+    constructor(p: string, m: Methods, d: string, r: boolean = false) {
         this.path = p;
         this.method = m;
         this.description = d;
@@ -29,3 +31,5 @@ export class ApiRoute {
         };
     }
 }
+
+export type RouteRes = { body: {}; status: number };
