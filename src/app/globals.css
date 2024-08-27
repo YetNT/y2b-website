@@ -14,10 +14,10 @@
         transform: translateX(100%);
     }
     50% {
-        transform: translateX(0px);
+        transform: translateX(0px) translateY(40px);
     }
     75% {
-        transform: translateX(-100%);
+        transform: translateX(50%) translateY(-40px);
     }
     100% {
         transform: translateX(9px);
@@ -29,11 +29,6 @@
     size: 1cm;
     align-self: center;
     animation: move 5s cubic-bezier(0, 1.33, 0.91, 0.12) infinite;
-}
-
-#img:hover {
-    border: 0.1cm solid orange;
-    border-radius: 20%;
 }
 
 #background {
@@ -65,21 +60,22 @@ nav {
     border-radius: 1cm;
 }
 
-nav div:nth-child(odd) {
+nav div:nth-child(2) {
     /* Links */
     display: flex; /* or inline-flex */
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    flex-grow: 0.3;
+    gap: 1.8cm;
+    flex-grow: 1;
 }
 
-nav div:nth-child(2) {
+nav div:nth-child(odd) {
     /* Banner (nav div img is the banner image.)*/
-    flex-grow: 3;
+    flex-grow: 0.001;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
 }
 
 nav div a {
@@ -96,8 +92,18 @@ nav div a {
         /* The actual banner image */
         width: 1.2cm;
     }
+    nav div:nth-child(2) {
+        /* Links */
+        gap: 0.3cm;
+    }
     nav div:nth-child(odd) {
-        flex-grow: 1;
+        justify-content: end;
+    }
+    nav div a {
+        font-size: calc(70%);
+    }
+    #img {
+        animation: none;
     }
 }
 a {

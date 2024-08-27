@@ -17,11 +17,6 @@ function Navbar() {
         
         <nav>
             <div>
-                <a href="/commands">Commands</a>
-                <a href="/tos">ToS</a>
-                <a href="/pp">Privacy Policy</a>
-            </div>
-            <div>
                 <a href="/">
                 <picture>
                     <img src="/Banner.png" alt="Banner" id="img" />
@@ -29,6 +24,9 @@ function Navbar() {
                 </a>
             </div>
             <div>
+                <a href="/commands">Commands</a>
+                <a href="/tos">ToS</a>
+                <a href="/pp">Privacy Policy</a>
                 <a href="https://discord.gg/r2rdHXTJvs" target="_blank">Support</a>
                 <a
                     href="https://discord.com/oauth2/authorize?client_id=701280304182067251&permissions=412317141056&scope=applications.commands%20bot"
