@@ -91,6 +91,8 @@ export async function PUT(
             cmd.description = bCmd?.description ?? cmd.description;
             cmd.use = bCmd?.use ?? cmd.use;
 
+            // TO-DO, not done.
+
             // return NextResponse.json(
             //     { error: "Command exists!" },
             //     { status: 403 }

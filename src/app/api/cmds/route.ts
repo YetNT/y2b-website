@@ -69,6 +69,7 @@ export async function PUT(req: NextRequest) {
         // Insert new commands
         let formattedCommands: ICommand[] = [];
         if (commands) {
+            // to sanitize the commands. we don't want any other nonsense
             formattedCommands = commands.map(
                 (cmd: ApiCommand): ICommand => ({
                     name: cmd.name, // Use '_id' as '_id'
