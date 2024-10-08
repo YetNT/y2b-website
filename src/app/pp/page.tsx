@@ -24,7 +24,7 @@ const PrivacyPolicy = () => {
                 <div className={s.ppTitle}>Data Collection</div>
                 <div className={s.ppDescription}>
                     In order to facilitate the proper functionality of our bot,
-                    we collect your
+                    we collect your 
                     <a
                         href="https://discord.com/developers/docs/reference#snowflakes"
                         >Discord user ID&#x2197;</a
